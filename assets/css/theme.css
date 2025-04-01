@@ -49,15 +49,26 @@
     justify-content: space-between; /* Pousse le footer vers le bas */
   }
   
-  .hero {
-    margin-top: 80px;  
-    padding: 25px;
-    background-color: #e0e0fa; 
+  
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    background-color: #DEF7F9;
+    align-items: center;
+    position: relative;
+    height: 800px;  
   }
   
-  .hero-banner {
-    background-color: #f0f0f0;
-    padding: 20px;
+  .tittle {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    color: #0D3C48;
+    text-align: center;
+  }
+  
+  .tittle h1, .tittle h2 {
+    margin: 0;
   }
   
   
@@ -128,8 +139,75 @@
     gap: 85px;
   }
   
-  .wpcf7-form-control {
-    height: 49px;
-    margin-bottom: 19px;
+
+  @keyframes flottement {
+    0% {
+      transform: translateY(0); /* Position d'origine */
+    }
+    50% {
+      transform: translateY(-10px); /* Légère élévation */
+    }
+    100% {
+      transform: translateY(0); /* Retour à la position initiale */
+    }
   }
   
+  .baleine {
+    display: flex;  /* Applique le flexbox sur le conteneur */
+    justify-content: center;  /* Centre horizontalement */
+    align-items: center;  /* Centre verticalement */
+  }
+  
+  .baleine img {
+    width: 220px;  /* Ajustez la taille comme vous le souhaitez */
+    height: auto;  /* Maintient les proportions de l'image */
+    animation: flottement 1.5s ease-in-out infinite;  /* L'animation dure 2 secondes et est infinie */
+  }
+  
+/* SECTION À PROPOS ---____________________________*/
+
+.about-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  flex-direction: column; /* Assure que la bulle et l'image sont empilées */
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espacement entre la bulle et l'image */
+  max-width: 800px;
+  width: 100%;
+}
+
+.speech-bubble {
+  position: relative;
+  background-color: #ffcc00; /* Couleur de la bulle */
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 300px; /* Largeur maximale de la bulle */
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.speech-bubble:after {
+  content: "";
+  position: absolute;
+  bottom: -15px; /* Ajuste la position de la pointe */
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ffcc00; /* Couleur de la pointe de la bulle */
+}
+
+.image-container {
+  /* Ajoutez ici des styles pour positionner l'image */
+  width: 150px;
+  height: auto;
+}
